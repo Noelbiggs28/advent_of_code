@@ -5,12 +5,14 @@ def part1():
     with open(in_file, 'r') as infile:
         for _ in infile:
             line = _.strip()
+            # remove nonnumbers
             numbers = ''.join(filter(lambda x: x.isdigit(), line))
-            
+            # combine first and last number as string
             total = numbers[0] + numbers[-1]
             # print("line",line)
             # print("numbers", numbers)
             # print("total", total)
+            # add it to total
             grand_total += int(total)
     return grand_total
 
@@ -36,6 +38,7 @@ def part2():
             line = _.strip().lower()
             for word in conversion:
                 if word in line:
+                    # replace written words with digits
                     line = line.replace(word,conversion[word])
             # numbers = ''.join(filter(lambda x: x.isdigit(), line))
             

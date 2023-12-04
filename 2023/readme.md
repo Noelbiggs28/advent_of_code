@@ -1,0 +1,1 @@
+I'm doing this because I think they're fun. I might not be doing it the best possible way to practice things such as stdin. 
