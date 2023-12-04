@@ -1,4 +1,4 @@
-# fine the first and last digit in each line
+# find the first and last digit in each line
 def part1():  
     in_file = "input.txt"  
     grand_total = 0
@@ -9,9 +9,6 @@ def part1():
             numbers = ''.join(filter(lambda x: x.isdigit(), line))
             # combine first and last number as string
             total = numbers[0] + numbers[-1]
-            # print("line",line)
-            # print("numbers", numbers)
-            # print("total", total)
             # add it to total
             grand_total += int(total)
     return grand_total

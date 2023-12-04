@@ -17,17 +17,16 @@ def part1():
             game_number = stripped_line[0].split(" ")[1]
             # check cube number against max number
             for value in stripped_line[1:]:
-                # print("value", value)
                 cube = value.split(" ") 
-                # print("cube", cube)
             # if number > that max break if < then add game number to grandtotal
                 if int(cube[1]) > max_cubes[cube[2]]:
                     possible_game = False
                     break
             if possible_game:
                 grand_total += int(game_number)
-            # print(game_number)
         return grand_total
+    
+    
 # Find the minimum amount of cubes for each game
 # Find the product of the cubes
 # Find the sum of products
@@ -44,9 +43,7 @@ def part2():
             
             stripped_line = line.strip().split(',')
             for value in stripped_line[1:]:
-                # print("value", value)
                 cube = value.split(" ") 
-                # print("cube", cube)
                 # cube ['', '2', 'red']
                 # store highest number of cubes in a dictionary per color
                 if int(cube[1]) > cubes[cube[2]]:

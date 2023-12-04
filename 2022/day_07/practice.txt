@@ -1,0 +1,30 @@
+$ cd /
+$ ls
+dir csjncqmr
+dir fnfjhvsp
+dir mhfrct
+dir pgmgbfcl
+dir qcf
+dir wrsjr
+$ cd csjncqmr
+$ ls
+8827 vdrdm.pfj
+$ cd ..
+$ cd fnfjhvsp
+$ ls
+dir csjncqmr
+dir czpmg
+162385 dcgph
+7135 hff.cdt
+$ cd csjncqmr
+$ ls
+121543 gzjdsn.wlc
+dir ljq
+$ cd ljq
+$ ls
+dir cwlrlvf
+dir jpqjhhpg
+$ cd cwlrlvf
+$ ls
+151219 dcgph
+$ cd ..

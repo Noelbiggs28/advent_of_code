@@ -1,0 +1,46 @@
+from head import Head
+from tail import Knot
+
+# [y][x]
+# 
+file = 'directions.txt'
+head = Head()
+tail = Knot()
+knot3 = Knot()
+knot4 = Knot()
+knot5 = Knot()
+knot6 = Knot()
+knot7 = Knot()
+knot8 = Knot()
+knot9 = Knot()
+knot10 = Knot()
+
+directions = []
+with open(file) as infile:
+    for row in infile:
+        row = row.strip()
+        row = row.split(' ')
+        directions.append([row[0], row[1]])
+
+
+
+
+for row in directions:
+    number = 0
+    while number < int(row[1]):
+        head.move(row[0])
+        tail.move(head)
+        knot3.move(tail)
+        knot4.move(knot3)
+        knot5.move(knot4)
+        knot6.move(knot5)
+        knot7.move(knot6)
+        knot8.move(knot7)
+        knot9.move(knot8)
+        knot10.move(knot9)
+        knot10.add_spot()
+        number +=1
+
+answer = len(knot10.tail_spot)
+print(answer)
+
