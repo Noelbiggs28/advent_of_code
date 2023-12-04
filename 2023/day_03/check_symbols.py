@@ -1,5 +1,6 @@
 import sys
 
+# removed all .s and numbers and got a string of unique symbols
 text = sys.stdin.read()
 no_dots = text.replace('.', '')
 no_numbers = ''.join(filter(lambda x: x.isdigit()==False, no_dots))
