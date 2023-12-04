@@ -1,4 +1,4 @@
-from functools import reduce
+from math import prod
 def part1():
     in_file = 'output.csv'
     grand_total = 0 
@@ -44,7 +44,7 @@ def part2():
                 # cube ['', '2', 'red']
                 if int(cube[1]) > cubes[cube[2]]:
                     cubes[cube[2]] = int(cube[1])
-            cube_power = reduce(lambda x, y: x * y, cubes.values())
+            cube_power = prod(cubes.values())
             grand_total += cube_power
        
         return grand_total
