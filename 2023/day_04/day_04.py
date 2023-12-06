@@ -41,22 +41,47 @@ def part2():
     in_file = "example.txt"
     total_cards = 0
     card_amounts = {}
-    card_info = {}
+    number_of_wins = {}
+    winning_numbers_dict = {}
     with open(in_file, "r") as infile:
         for _ in infile:
             line = _.strip()
-            card_number = line.split(':')[0].split(" ")[1]
-            winning_numbers = line.split(":")[1].split("|")[0]
-            winning_numbers = [number for number in winning_numbers if number != ' ']
-            your_numbers = line.split((":"))[1].split("|")[1]
-            your_numbers = [number for number in your_numbers if number != ' ']
+            card_number = line.split(':')[0].split(" ")
+            card_number = [number for number in card_number if number !='']
+            card_number= card_number[1]
+            winning_numbers = line.split(":")[1].split("|")[0].split(' ')
+            winning_numbers = [number for number in winning_numbers if number != '']
+            your_numbers = line.split((":"))[1].split("|")[1].split(' ')
+            your_numbers = [number for number in your_numbers if number != '']
             card_amounts[card_number] = 1
-            card_info[card_number] = (winning_numbers, your_numbers)
-           
-    current_card = 1
-    for key in card_info:
-        print(key)
-        print(card_info[key][0])
-        print(card_info[key][1])
+            number_of_wins[card_number] = 0
+            # print(card_number, winning_numbers, your_numbers)
+            for winning_number in winning_numbers:
+                winning_numbers_dict[(card_number, winning_number)] = True
+            for your_number in your_numbers:
+                # print(your_number)
+                # print(number_of_wins)
+                # print("card number", card_number)
+                try:
+                    if winning_numbers_dict[(card_number, your_number)]:
+                        # print(card_number)
+                        # print('your number', your_number)
+                        number_of_wins[card_number] += 1
+
+                except KeyError:
+                    continue
+    
+    # print(card_amounts,number_of_wins)
+    for key in card_amounts:
+        wins = number_of_wins[key]
+        # print("key",key)
+        if wins != "0":
+            # print("wins", wins)
+            for win in range(1,wins+1):
+                # print("win", win)
+                print(key)
+                card_amounts[str(int(key)+win)] +=1*card_amounts[key]
+        # print(key)
+    total_cards = sum(card_amounts.values())
     return total_cards
 print(part2())
