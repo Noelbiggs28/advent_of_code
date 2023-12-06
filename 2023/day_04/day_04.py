@@ -47,6 +47,7 @@ def part2():
         for _ in infile:
             line = _.strip()
             card_number = line.split(':')[0].split(" ")
+            # if there is a double digit card. the first digit of single digits is ''
             card_number = [number for number in card_number if number !='']
             card_number= card_number[1]
             winning_numbers = line.split(":")[1].split("|")[0].split(' ')
