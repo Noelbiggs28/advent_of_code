@@ -16,6 +16,11 @@ def part1():
 
 # find the first and last digit in each line but digits can be spelled out
 def part2():
+    def find_all_indexs(word, string):
+        temp = (string.find(word),word)
+        if temp[0] == -1:
+            return []
+        return [temp] + (find_all_indexs(word, string[temp[0]+1:]))
     conversion = {
         "one":"1",
         "two":"2",
@@ -25,25 +30,37 @@ def part2():
         "six":"6",
         "seven":"7",
         "eight":"8",
-        "nine":"9",
-        "zero":"0"
+        "nine":"9"
+    
     }
     in_file = "example2.txt"  
     grand_total = 0
     with open(in_file, 'r') as infile:
         for _ in infile:
+            all_indexs_of_words = []
             line = _.strip().lower()
+
             for word in conversion:
-                if word in line:
-                    # replace written words with digits
-                    line = line.replace(word,conversion[word])
-            # numbers = ''.join(filter(lambda x: x.isdigit(), line))
-            
-            # total = numbers[0] + numbers[-1]
-            print("line",line)
-            # print("numbers", numbers)
-            # print("total", total)
-            # grand_total += int(total)
+                all_indexs_of_words.append(find_all_indexs(word, line))
+
+            all_indexs_of_words = sorted([tupple for tupple in all_indexs_of_words if tupple!=[]])
+            print(line)
+            for index in range(len(all_indexs_of_words)):
+                current_word = all_indexs_of_words[index][0][1]
+                current_index = all_indexs_of_words[index][0][0]
+                
+                if index == len(all_indexs_of_words) - 1 or current_index < all_indexs_of_words[index +1][0][0]:
+                    line = line.replace(current_word,conversion[current_word])
+            print(line)
+            numbers = ''.join(filter(lambda x: x.isdigit(), line))
+            # combine first and last number as string
+            print(numbers[0], numbers[-1])
+            total = numbers[0] + numbers[-1]
+            # add it to total
+            grand_total += int(total)
     return grand_total
+# 53902 too high
 print(part2())
 # eightwothree needs to be 83 not 23
+
+
