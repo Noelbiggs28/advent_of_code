@@ -11,9 +11,9 @@ def find_next_number(data_set):
         return data_set[-1] + find_next_number(next_data_set) 
 
 
-def part1():
+def part1(test_file):
     answer = 0
-    in_file = "input.txt"
+    in_file = test_file
     info = []
     with open(in_file, "r") as infile:
         for _ in infile:
@@ -23,9 +23,9 @@ def part1():
     for data_set in info:
         next_number = find_next_number(data_set)
         answer += next_number
-
     return answer
-print(part1())
+
+print(part1("example.txt"))
 
 def find_prev_number(data_set):
     next_data_set =[]
@@ -42,7 +42,7 @@ def find_prev_number(data_set):
 
 def part2():
     answer = 0
-    in_file = "input.txt"
+    in_file = "example.txt"
     info = []
     with open(in_file, "r") as infile:
         for _ in infile:
@@ -53,6 +53,5 @@ def part2():
     for data_set in info:
         next_number = find_prev_number(data_set)
         answer += next_number
-
     return answer
 print(part2())
