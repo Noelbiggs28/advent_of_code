@@ -1,9 +1,0 @@
-# !/bin/bash
-
-export DEPLOY_ENV='test'
-python3 -m unittest discover unittests "*_spec.py"
-
-# chmod u+x run_tests
-# Use `entr` to re-run tests upon changes to files. 
-# ls models/*.py | entr -s './run_tests'    # watch just Models 
-# ls */*.py | entr -s './run_tests'   # watch all files including tests (I'd recommend this one so it updates as you write tests also

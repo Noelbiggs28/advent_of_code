@@ -8,9 +8,9 @@ def check_if_between(seed, output, input, range):
     return -1
 
 
-def part1():
+def part1(in_file):
     closest_seed = []
-    in_file = "input.txt"
+ 
     info = {}
     converter = ''
     with open(in_file, 'r') as infile:
@@ -48,11 +48,11 @@ def part1():
             
     # print(closest_seed)
     return min(closest_seed)
-print(part1())
+print(part1("example.txt"))
 
-def part2():
+def part2(in_file):
     closest_seed = [-1]
-    in_file = "input.txt"
+    
     info = {}
     converter = ''
     with open(in_file, 'r') as infile:
@@ -101,5 +101,5 @@ def part2():
             
     # print(closest_seed)
     return min(closest_seed)
-print(part2())
+print(part2("example.txt"))
 # probably works but would take a day to compute
