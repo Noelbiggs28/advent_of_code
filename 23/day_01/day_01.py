@@ -13,7 +13,7 @@ def part1():
             grand_total += int(total)
     return grand_total
 
-
+print(part1())
 # find the first and last digit in each line but digits can be spelled out
 def part2():
     def find_all_indexs(word, string):
@@ -33,7 +33,7 @@ def part2():
         "nine":"9"
     
     }
-    in_file = "input.txt"  
+    in_file = "example3.txt"  
     grand_total = 0
     with open(in_file, 'r') as infile:
         for _ in infile:
@@ -62,7 +62,7 @@ def part2():
             grand_total += int(total)
     return grand_total
 # 53902 too high
-# 53926
+# 53926 too high
 print(part2())
 # eightwothree needs to be 83 not 23
 
