@@ -17,4 +17,5 @@ class TestQueue(unittest.TestCase):
         self.assertEqual(x, 8 )
 if __name__ == '__main__':
     unittest.main() 
-    # ls day_10.py | entr -s "python3 -m unittest predict_spec.py"
+# echo "day_10.py" | entr -c sh -c "python3 -m unittest predict_spec.py"
+# echo "day_10.py" | entr python3 day_10.py
